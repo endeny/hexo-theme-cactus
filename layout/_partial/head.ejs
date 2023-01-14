@@ -51,6 +51,11 @@
     <title><%= page_title() %></title>
     <!-- styles -->
     <%- css('css/style') %>
+    <% if (theme.style) { %>
+      <%- css('css/custom') %>
+    <% } %>
+
+    <%- css('css/custom') %>
     <!-- persian styles -->
     <% if (theme.direction && theme.direction === 'rtl') { %>
       <%- css('css/rtl') %>
