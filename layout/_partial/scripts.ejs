@@ -13,6 +13,15 @@
   <% } %> 
 <% } %>
 
+<!-- fancybox -->
+<% if (page.photos && page.photos.length) { %>
+  <% if (isCdnEnable('fancybox_js')) {%>
+    <%- getCdnScript('fancybox_js') %> 
+  <% } else { %> 
+    <%- js('lib/fancybox/js/fancybox.umd.js') %>
+  <% } %> 
+<% } %>
+
 <!-- clipboard -->
 <% if (is_post()){ %>
   <% if (isCdnEnable('clipboard')) { %>

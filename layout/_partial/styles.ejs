@@ -31,3 +31,20 @@
       href="<%- url_for('/lib/font-awesome/css/all.min.css') %>"
   /></noscript>
 <% } %>
+
+
+<% if (isCdnEnable('fancybox')) { %>
+  <%- getCdnLink('fancybox', {preload: true}) %>
+<% } else { %> 
+  <link
+    rel="preload"
+    href="<%- url_for('/lib/fancybox/css/fancybox.css') %>"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="<%- url_for('/lib/fancybox/css/fancybox.css') %>"
+  /></noscript>
+<% } %>
