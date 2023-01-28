@@ -20,6 +20,21 @@
   <%- js('lib/fancybox/js/fancybox.umd.js') %>
 <% } %> 
 
+<!-- mermaid -->
+<% if (isCdnEnable('mermaid_js')) {%>
+  <%- getCdnScript('mermaid_js') %> 
+<% } else { %> 
+  <%- js('lib/mermaid/mermaid.js') %>
+<% } %>
+<script type="text/javascript">
+  $(function() {
+    if (window.mermaid) {
+      const options = JSON.parse(document.getElementById('maid-script').getAttribute('mermaidoptioins'));
+      mermaid.initialize(options);
+    }
+  })
+</script>
+
 <!-- clipboard -->
 <% if (is_post()){ %>
   <% if (isCdnEnable('clipboard')) { %>
