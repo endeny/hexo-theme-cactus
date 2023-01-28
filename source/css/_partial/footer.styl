@@ -8,6 +8,9 @@
   text-align: center
   font-size: 12px
 
+  >div
+    display: flex
+
   ul
     margin: 0
     padding: 0
@@ -46,11 +49,14 @@
 @media (min-width: 39rem)
   #footer
     display: flex
-    flex-flow: row wrap
+    flex-flow: column wrap
     justify-content: space-between
     align-items: center
     align-content: center
     margin-bottom: 20px
+
+    >div
+      display: flex
 
     .footer-left
       align-self: flex-start
