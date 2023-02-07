@@ -48,3 +48,19 @@
       href="<%- url_for('/lib/fancybox/css/fancybox.css') %>"
   /></noscript>
 <% } %>
+
+<% if (isCdnEnable('plyr')) { %>
+  <%- getCdnLink('plyr', {preload: true}) %>
+<% } else { %> 
+  <link
+    rel="preload"
+    href="<%- url_for('/lib/plyr/plyr.css') %>"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript
+    ><link
+      rel="stylesheet"
+      href="<%- url_for('/lib/plyr/plyr.css') %>"
+  /></noscript>
+<% } %>

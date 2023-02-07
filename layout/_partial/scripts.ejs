@@ -35,6 +35,21 @@
   })
 </script>
 
+<!-- plyr -->
+<% if (isCdnEnable('plyr_js')) {%>
+  <%- getCdnScript('plyr_js') %> 
+<% } else { %> 
+  <%- js('lib/plyr/plyr.js') %>
+<% } %>
+<script type="text/javascript">
+  $(function() {
+    $(".plyr-player").each((i, e) => {
+      new Plyr(e)
+    })
+  })
+</script>
+
+
 <!-- clipboard -->
 <% if (is_post()){ %>
   <% if (isCdnEnable('clipboard')) { %>
