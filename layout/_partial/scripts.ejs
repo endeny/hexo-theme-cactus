@@ -29,8 +29,11 @@
 <script type="text/javascript">
   $(function() {
     if (window.mermaid) {
-      const options = JSON.parse(document.getElementById('maid-script').getAttribute('mermaidoptioins'));
-      mermaid.initialize(options);
+      const container = document.getElementById('maid-script')
+      if (container) {
+        const options = JSON.parse(container.getAttribute('mermaidoptioins'));
+        mermaid.initialize(options);
+      }
     }
   })
 </script>
@@ -38,14 +41,28 @@
 <!-- plyr -->
 <% if (isCdnEnable('plyr_js')) {%>
   <%- getCdnScript('plyr_js') %> 
+  <%- getCdnScript('hls_js') %> 
 <% } else { %> 
   <%- js('lib/plyr/plyr.js') %>
+  <%- js('lib/plyr/hls.min.js') %>
 <% } %>
 <script type="text/javascript">
   $(function() {
+    const players = []
     $(".plyr-player").each((i, e) => {
-      new Plyr(e)
+        const player = new Plyr(e)
+        players.push(player)
+        const sourceElement = e.querySelector("source")
+        if (sourceElement && sourceElement.getAttribute("type") === "application/x-mpegURL") {
+          const source = sourceElement.getAttribute("src")
+          if (Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(source);
+            hls.attachMedia(e);
+          }
+        }
     })
+    window.plyrPlayer = players
   })
 </script>
 
@@ -179,7 +196,10 @@
           script.setAttribute('theme', utterances_theme);
           script.setAttribute('crossorigin', 'anonymous');
           script.async = true;
-          (document.getElementById('utterances_thread')).appendChild(script);
+          let container = (document.getElementById('utterances_thread'))
+          if (container) {
+            container.appendChild(script);
+          }
       }());
   </script>
 <% } %>
