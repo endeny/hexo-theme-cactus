@@ -5,6 +5,13 @@
   <%- js('lib/jquery/jquery.min') %>
 <% } %>
 
+<!-- html -->
+<% if (isCdnEnable('html')) {%> 
+  <%- getCdnScript('html') %> 
+<% } else { %> 
+  <%- js('lib/html/index.bundle') %>
+<% } %>
+
 <% if (page.photos && page.photos.length) { %>
   <% if (isCdnEnable('justified_gallery_js')) {%>
     <%- getCdnScript('justified_gallery_js') %> 
