@@ -1,6 +1,6 @@
 const Gallery = require('./_partial/post/gallery.jsx');
 
-function Page(props) {
+function Page(props: any) {
   const { config, theme, url_for, __ } = props;
   return (
     <article className="post" itemScope itemType="http://schema.org/BlogPosting">
