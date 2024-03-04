@@ -1,25 +1,13 @@
 import React from 'react';
 
-interface Page {
-  photos?: any[];
-  // 其他可能的属性...
-}
-
-interface Props {
-  page: Page;
-  isCdnEnable: (name: string) => boolean;
-  getCdnLink: (name: string, options: { preload: boolean }) => string;
-  url_for: (url: string) => string;
-}
-
-const StylesComponent: React.FC<Props> = ({ page, isCdnEnable, getCdnLink, url_for }) => {
+const StylesComponent: React.FC<any> = ({ page, isCdnEnable, getCdnLink, url_for }) => {
   const renderLink = (name: string, url: string) => {
-    if (isCdnEnable(name)) {
+    if (false && isCdnEnable(name)) {
       return <link rel="preload" href={getCdnLink(name, { preload: true })} as="style" onLoad="this.onload=null;this.rel='stylesheet'" />;
     } else {
       return (
         <>
-          <link rel="preload" href={url_for(url)} as="style" onLoad="this.onload=null;this.rel='stylesheet'" />
+          <link rel="stylesheet" href={url_for(url)} as="style" onLoad={(e: any) => {e.onLoad=null;e.rel='stylesheet'}} />
           <noscript>
             <link rel="stylesheet" href={url_for(url)} />
           </noscript>

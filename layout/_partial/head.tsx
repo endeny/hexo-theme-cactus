@@ -1,6 +1,8 @@
 import React from 'react';
+import Styles from './styles';
 
-const HeadComponent: React.FC<any> = ({ theme, page, config, open_graph, meta, page_title, css, url_for, gravatar, thumbnail}) => {
+const HeadComponent: React.FC<any> = (props) => {
+  const { theme, page, config, open_graph, meta, page_title, css, url_for, gravatar, thumbnail} = props;
   return (
     <head>
       <meta charSet="utf-8" />
@@ -8,6 +10,7 @@ const HeadComponent: React.FC<any> = ({ theme, page, config, open_graph, meta, p
       <meta name="HandheldFriendly" content="True" />
       <meta name="google-adsense-account" content="ca-pub-7187369450486868" />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+      <Styles {...props} />
       <div dangerouslySetInnerHTML={{ __html: open_graph({
         image:          thumbnail(page),
         fb_app_id:      theme.open_graph.fb_app_id,

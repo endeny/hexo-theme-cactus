@@ -4,7 +4,6 @@ import ActionsDesktop from './_partial/post/actions_desktop';
 import Header from './_partial/header';
 import ActionsMobile from './_partial/post/actions_mobile';
 import Footer from './_partial/footer';
-import Styles from './_partial/styles';
 import Scripts from './_partial/scripts';
 
 const LayoutComponent: React.FC<any> = (props) => {
@@ -20,7 +19,6 @@ const LayoutComponent: React.FC<any> = (props) => {
           {isPost() && <ActionsMobile {...props} />}
           <Footer {...props} />
         </div>
-        <Styles {...props} />
         <Scripts {...props} />
       </body>
     </html>
