@@ -18,7 +18,7 @@ const HeaderComponent: React.FC<any> = ({ theme, config, url_for, gravatar, __ }
           </li>
           {theme.nav && Object.entries(theme.nav).map(([i, navItem]: any) => (
             <li key={i}>
-              <img src={url_for(navItem.icon || '')}/>
+              <img alt={i} src={url_for(navItem.icon || '')}/>
               <a href={url_for(navItem.path || '')}>{__('nav.'+i).replace("nav.", "")}</a>
             </li>
           ))}

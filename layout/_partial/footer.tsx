@@ -30,7 +30,7 @@ export default function Footer(props: any) {
             <ul>
               {Object.entries(theme.nav).map(([key, value]: any) => {
                 return (
-                  <li>
+                  <li key={key}>
                     <a href={url_for(value.path)}>
                       {__("nav." + key).replace("nav.", "")}
                     </a>
