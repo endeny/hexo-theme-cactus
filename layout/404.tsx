@@ -1,6 +1,7 @@
-const Gallery = require('./_partial/post/gallery.jsx');
+import React from 'react';
+import Gallery from './_partial/post/gallery.tsx';
 
-function Page(props: any) {
+export default function Page(props: any) {
   const { config, theme, url_for, __ } = props;
   return (
     <article className="post" itemScope itemType="http://schema.org/BlogPosting">
@@ -18,5 +19,3 @@ function Page(props: any) {
     </article>
   );
 }
-
-module.exports = Page;

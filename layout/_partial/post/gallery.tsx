@@ -1,4 +1,6 @@
-function Gallery(props) {
+import React from 'react'
+
+export default function Gallery(props) {
   const { page, config, theme, url_for, __ } = props;
   const photos = page.photos ?? []
   if (photos && photos.length) {
@@ -17,5 +19,3 @@ function Gallery(props) {
   }
   return null;
 }
-
-module.exports = Gallery;
