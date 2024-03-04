@@ -22,6 +22,7 @@ export default function Footer(props: any) {
         <div className="footer-left">
           {__("footer.copyright")} &copy;
           {startYear >= endYear ? endYear : startYear + "-" + endYear}
+          {" "}
           {config.author || config.title}
         </div>
         <div className="footer-right">
