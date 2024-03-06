@@ -17,7 +17,7 @@ const HeadComponent: React.FC<any> = (props) => {
         fb_admins:      theme.open_graph.fb_admins,
         twitter_id:     theme.open_graph.twitter_id,
         google_plus:    theme.open_graph.google_plus,
-      }) }} />
+      })}} />
       <div dangerouslySetInnerHTML={{ __html: meta(page) }} />
       {theme.favicon && (
         <>

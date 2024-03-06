@@ -21,7 +21,7 @@ const StylesComponent: React.FC<any> = ({ page, isCdnEnable, getCdnLink, url_for
 
   return (
     <>
-      {page.photos && page.photos.length && renderLink('justified_gallery_css', '/lib/justified-gallery/css/justifiedGallery.min.css')}
+      {page.photos && page.photos.length != 0 && renderLink('justified_gallery_css', '/lib/justified-gallery/css/justifiedGallery.min.css')}
       {renderLink('font_awesome', '/lib/font-awesome/css/all.min.css')}
       {renderLink('fancybox', '/lib/fancybox/css/fancybox.css')}
       {renderLink('plyr', '/lib/plyr/plyr.css')}
