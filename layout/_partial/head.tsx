@@ -10,6 +10,15 @@ const HeadComponent: React.FC<any> = (props) => {
       <meta name="HandheldFriendly" content="True" />
       <meta name="google-adsense-account" content="ca-pub-7187369450486868" />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+      {theme.favicon?.desktop && (
+        <link rel="shortcut icon" href={theme.gravatar && (theme.gravatar.email || theme.gravatar.hash) && theme.favicon.desktop.gravatar ? (theme.gravatar.email ? gravatar(theme.gravatar.email, 48) : `https://www.gravatar.com/avatar/${theme.gravatar.hash}?s=48`) : url_for(theme.favicon.desktop.url)} />
+          )}
+      {theme.favicon?.android && (
+        <link rel="icon" type="image/png" sizes="192x192" href={theme.gravatar && (theme.gravatar.email || theme.gravatar.hash) && theme.favicon.android.gravatar ? (theme.gravatar.email ? gravatar(theme.gravatar.email, 192) : `https://www.gravatar.com/avatar/${theme.gravatar.hash}?s=192`) : url_for(theme.favicon.android.url)} />
+      )}
+      {theme.favicon?.apple &&
+        <link rel="apple-touch-icon" sizes="180x180" href={theme.gravatar && (theme.gravatar.email || theme.gravatar.hash) && theme.favicon.apple.gravatar ? (theme.gravatar.email ? gravatar(theme.gravatar.email, 180) : `https://www.gravatar.com/avatar/${theme.gravatar.hash}?s=180`) : url_for(theme.favicon.apple.url)} />
+      }
       <Styles {...props} />
       <div dangerouslySetInnerHTML={{ __html: open_graph({
         image:          thumbnail(page),
@@ -19,19 +28,6 @@ const HeadComponent: React.FC<any> = (props) => {
         google_plus:    theme.open_graph.google_plus,
       })}} />
       <div dangerouslySetInnerHTML={{ __html: meta(page) }} />
-      {theme.favicon && (
-        <>
-          {theme.favicon.desktop && (
-            <link rel="shortcut icon" href={theme.gravatar && (theme.gravatar.email || theme.gravatar.hash) && theme.favicon.desktop.gravatar ? (theme.gravatar.email ? gravatar(theme.gravatar.email, 48) : `https://www.gravatar.com/avatar/${theme.gravatar.hash}?s=48`) : url_for(theme.favicon.desktop.url)} />
-          )}
-          {theme.favicon.android && (
-            <link rel="icon" type="image/png" sizes="192x192" href={theme.gravatar && (theme.gravatar.email || theme.gravatar.hash) && theme.favicon.android.gravatar ? (theme.gravatar.email ? gravatar(theme.gravatar.email, 192) : `https://www.gravatar.com/avatar/${theme.gravatar.hash}?s=192`) : url_for(theme.favicon.android.url)} />
-          )}
-          {theme.favicon.apple && (
-            <link rel="apple-touch-icon" sizes="180x180" href={theme.gravatar && (theme.gravatar.email || theme.gravatar.hash) && theme.favicon.apple.gravatar ? (theme.gravatar.email ? gravatar(theme.gravatar.email, 180) : `https://www.gravatar.com/avatar/${theme.gravatar.hash}?s=180`) : url_for(theme.favicon.apple.url)} />
-          )}
-        </>
-      )}
       <title>{page_title()}</title>
       <div dangerouslySetInnerHTML={{ __html: css('css/style') }} />
       {theme.style && <div dangerouslySetInnerHTML={{ __html: css('css/custom') }} />}
