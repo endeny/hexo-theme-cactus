@@ -23,17 +23,17 @@ const PaginationComponent: React.FC<Props> = ({ page, url_for, __ }) => {
 
   return (
     <div className="pagination">
-      {page.prev && (
-        <a href={url_for(page.prev_link || '')}>
+      {page.prev ? (
+        <a title="prev_link" href={url_for(page.prev_link || '')}>
           <i className="fas fa-angle-left"></i>
         </a>
-      )}
+      ) : null}
       <span className="page-number">{__('pagination.page', page.current, page.total)}</span>
-      {page.next && (
-        <a href={url_for(page.next_link || '')}>
+      {page.next ? (
+        <a title="next_link" href={url_for(page.next_link || '')}>
           <i className="fas fa-angle-right"></i>
         </a>
-      )}
+      ) : null}
     </div>
   );
 };

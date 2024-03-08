@@ -13,7 +13,7 @@ export default function Search(props: any) {
         />
       </form>
       <div id="search-result"></div>
-      <p class="search-no-result">{__("search.no_results")}</p>
+      <p className="search-no-result">{__("search.no_results")}</p>
     </section>
   );
 }
