@@ -57,16 +57,17 @@ const HeadComponent: React.FC<any> = (props) => {
             });
           `}} />
           <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7187369450486868" crossOrigin="anonymous"></script>
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-RR0ESTB517"></script>
-          <script dangerouslySetInnerHTML={{__html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-RR0ESTB517');
-          `}} />
         </>
       )}
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7187369450486868" crossOrigin="anonymous"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-RR0ESTB517"></script>
+      <script dangerouslySetInnerHTML={{__html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-RR0ESTB517');
+      `}} />
+      <script dangerouslySetInnerHTML={{__html: `(adsbygoogle = window.adsbygoogle || []).push({});`}} />
     </head>
   );
 };

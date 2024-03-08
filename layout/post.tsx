@@ -6,6 +6,7 @@ import Date from "./_partial/post/date";
 import Category from "./_partial/post/category";
 import Tag from "./_partial/post/tag";
 import Copyright from "./_partial/copyright";
+import ADs from "./_partial/post/ads";
 
 export default function Post(props: any) {
   const { page, config } = props;
@@ -33,6 +34,7 @@ export default function Post(props: any) {
         <Gallery {...props} />
         <div className="content" itemProp="articleBody"
           dangerouslySetInnerHTML={{ __html: page.content }} />
+        <ADs />
         <Copyright {...props} post={page} index={false} is_post={() => true} />
       </article>
       <Comments {...props} />
