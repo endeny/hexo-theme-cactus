@@ -14,7 +14,7 @@ hexo.extend.helper.register('isCdnEnable', function (resource) {
  * returns the script tag to load the specified resource from a CDN
  */
 hexo.extend.helper.register('getCdnScript', function (resource) {
-  return `<script src="${hexo.theme.config.cdn[resource]}" crossorigin="anonymous"></script>`;
+  return hexo.theme.config.cdn[resource]
 });
 
 /**

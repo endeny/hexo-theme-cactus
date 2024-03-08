@@ -1,11 +1,11 @@
 import React from 'react';
 
-const ScriptsComponent: React.FC<any> = ({ page, isCdnEnable, getCdnScript, js, is_post, config, theme }) => {
+const ScriptsComponent: React.FC<any> = ({ page, isCdnEnable, getCdnScript, url_for, is_post, config, theme }) => {
   const renderScript = (name: string, url: string) => {
     if (isCdnEnable(name)) {
-      return <script src={getCdnScript(name)} />;
+      return <script crossOrigin="anonymous" src={getCdnScript(name)} />;
     } else {
-      return <script src={js(url)} />;
+      return <script src={url_for(url)} />;
     }
   };
   
@@ -18,8 +18,8 @@ const ScriptsComponent: React.FC<any> = ({ page, isCdnEnable, getCdnScript, js, 
       {renderScript('plyr_js', 'lib/plyr/plyr.js')}
       {renderScript('hls_js', 'lib/plyr/hls.min.js')}
       {is_post() && renderScript('clipboard', 'lib/clipboard/clipboard.min')}
-      <script src={js('js/main')} />
-      {config.search && (page.search || page.type === "search") && <script src={js('js/search.js')} />}
+      {renderScript('main', 'js/main.js')}
+      {config.search && (page.search || page.type === "search") && renderScript("search", "js/search.js") }
     </>
   );
 };
