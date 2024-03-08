@@ -8,7 +8,7 @@ const ScriptsComponent: React.FC<any> = ({ page, isCdnEnable, getCdnScript, url_
       return <script src={url_for(url)} data-onload={onload} />;
     }
   };
-  
+  const enableComment = page.comments && theme.utterances.enabled && theme.utterances.repo && theme.utterances.issue_term && theme.utterances.theme
   return (
     <>
       {renderScript('jquery', 'lib/jquery/jquery.min')}
@@ -20,6 +20,14 @@ const ScriptsComponent: React.FC<any> = ({ page, isCdnEnable, getCdnScript, url_
       {is_post() && renderScript('clipboard', 'lib/clipboard/clipboard.min')}
       {renderScript('main', 'js/main.js')}
       {config.search && (page.search || page.type === "search") && renderScript("search", "js/search.js") }
+      {enableComment ? <script src="https://utteranc.es/client.js"
+        repo={theme.utterances.repo}
+        issue-term={theme.utterances.issue_term}
+        label={theme.utterances.label}
+        theme={theme.utterances.theme}
+        crossorigin="anonymous"
+        async>
+      </script> : null}
     </>
   );
 };
