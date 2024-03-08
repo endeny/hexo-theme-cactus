@@ -12,7 +12,6 @@ const ScriptsComponent: React.FC<any> = ({ page, isCdnEnable, getCdnScript, js, 
   return (
     <>
       {renderScript('jquery', 'lib/jquery/jquery.min')}
-      {renderScript('html', 'lib/html/index.bundle')}
       {page.photos && renderScript('justified_gallery_js', 'lib/justified-gallery/js/jquery.justifiedGallery.min.js')}
       {renderScript('fancybox_js', 'lib/fancybox/js/fancybox.umd.js')}
       {renderScript('mermaid_js', 'lib/mermaid/mermaid.js')}

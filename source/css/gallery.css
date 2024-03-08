@@ -1,0 +1,12 @@
+.x-gallery > p {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.x-gallery > p > img {
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 33%;
+}
