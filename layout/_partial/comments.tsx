@@ -17,6 +17,14 @@ export default function Comments(props: any) {
         <div id="utterances_thread">
           <noscript>{__("comments.no_js")}</noscript>
         </div>
+        <script src="https://utteranc.es/client.js"
+          // @ts-ignore
+          repo={theme.utterances.repo}
+          issue-term={theme.utterances.issue_term}
+          label={theme.utterances.label}
+          theme={theme.utterances.theme}
+          crossOrigin="anonymous"
+          async />
       </div>
     );
   }

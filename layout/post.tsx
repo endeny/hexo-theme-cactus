@@ -35,7 +35,7 @@ export default function Post(props: any) {
           dangerouslySetInnerHTML={{ __html: page.content }} />
         <Copyright {...props} post={page} index={false} is_post={() => true} />
       </article>
-      <Comments {...props} is_post={() => true} />
+      <Comments {...props} />
     </>
   );
 }
