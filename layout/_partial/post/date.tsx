@@ -27,10 +27,10 @@ export default function Date({ post, config, theme, class_name, is_post, is_home
       {is_post() ? (
         <>
           <time dateTime={date_xml(post.date)} itemProp="datePublished">
-            {date(post.date, config.date_format)}
+            <> 🗓️{date(post.date, config.date_format)} </>
           </time>
           {theme.post.show_updated && post.date !== post.updated && (
-            <> (Updated: <time dateTime={date_xml(post.updated)} itemProp="dateModified">{date(post.updated, config.date_format)}</time>) </>
+            <> (🗒️<time dateTime={date_xml(post.updated)} itemProp="dateModified">{date(post.updated, config.date_format)}</time>) </>
           )}
         </>
       ) : (

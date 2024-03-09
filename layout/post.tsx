@@ -24,7 +24,7 @@ export default function Post(props: any) {
               itemType="http://schema.org/Person"
             >
               <span itemProp="name">
-                {page.author ? page.author : config.author}
+                ✍️ {page.author ? page.author : config.author}
               </span>
             </span>
             <Date {...props} post={page} class_name="postdate" />
