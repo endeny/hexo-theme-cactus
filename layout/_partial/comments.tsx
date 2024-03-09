@@ -28,5 +28,28 @@ export default function Comments(props: any) {
       </div>
     );
   }
+
+  if (page.comments && theme.giscus.enabled) {
+    const props = theme.giscus;
+    return (
+    <div className="blog-post-comments">
+      <script src={props.src}
+      data-repo={props.repo}
+      data-repo-id={props.repoId}
+      data-category={props.category}
+      data-category-id={props.categoryId}
+      data-mapping={props.mapping}
+      data-strict={props.strict}
+      data-reactions-enabled={props.reactionsEnabled}
+      data-emit-metadata={props.emitMetadata}
+      data-input-position={props.inputPosition}
+      data-theme={props.theme}
+      data-lang={props.lang}
+      data-loading={props.loading}
+      crossOrigin="anonymous"
+      async />
+    </div>
+    )
+  }
   return null;
 }
