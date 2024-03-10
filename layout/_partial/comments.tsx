@@ -1,6 +1,7 @@
 import React from "react";
+import { HexoProps } from "../global";
 
-export default function Comments(props: any) {
+export default function Comments(props: HexoProps) {
   const { theme, page, __ } = props;
   if (page.comments && theme.disqus.enabled) {
     return (

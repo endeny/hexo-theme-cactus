@@ -1,3 +1,5 @@
+import Theme from "./theme"
+
 interface HexoProps {
     page: {
         title: string
@@ -5,6 +7,7 @@ interface HexoProps {
         date: any
         lang: string
         updated: any,
+        comments: boolean
         tags?: {
             data: {
                 name: string
@@ -17,15 +20,7 @@ interface HexoProps {
         nocover?: boolean
         cover?: string
     }
-    theme: {
-        post: {
-            show_updated: boolean
-        }
-        post_background: {
-            enabled: boolean
-            images: string[]
-        }
-    }
+    theme: Theme.Config
     url_for: any
     date: any
     date_xml: any
@@ -33,4 +28,6 @@ interface HexoProps {
         author?: string
         date_format: string
     }
+    // to localize strings
+    __: (key: string) => string|undefined
 }
