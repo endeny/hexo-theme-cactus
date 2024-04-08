@@ -7,6 +7,6 @@ export default function ADs(props: any) {
             data-ad-layout="in-article"
             data-ad-format="fluid"
             data-ad-client="ca-pub-4089807807862411"
-            data-ad-slot="4739040333" />
+            data-ad-slot="5898062389" />
     )
 }
