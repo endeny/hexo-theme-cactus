@@ -142,6 +142,12 @@ declare namespace Theme {
         images: string[];
     }
 
+    interface Adsense {
+        enable: boolean;
+        client: string;
+        slot: string;
+    }
+
     interface Config {
         projects_url: string;
         direction: string;
@@ -173,6 +179,7 @@ declare namespace Theme {
         cdn: CDN;
         sitemap: Sitemap;
         post_background: PostBackground;
+        adsense?: Adsense;
     }
 }
 

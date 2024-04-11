@@ -36,7 +36,7 @@ export default function Post(props: any) {
         <Cover {...props} />
         <div className="content" itemProp="articleBody"
           dangerouslySetInnerHTML={{ __html: page.content }} />
-        <ADs />
+        <ADs adsense={props.theme.adsense} />
         <Copyright {...props} post={page} index={false}/>
       </article>
       <Comments {...props} />

@@ -59,7 +59,9 @@ const HeadComponent: React.FC<any> = (props) => {
           <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
         </>
       )}
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8265855834077602" crossOrigin="anonymous"></script>
+      {theme.adsense && theme.adsense.enable ?
+      <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${theme.adsense.client}`} crossOrigin="anonymous"></script>
+      : null}
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-RR0ESTB517"></script>
       <script dangerouslySetInnerHTML={{__html: `
           window.dataLayer = window.dataLayer || [];

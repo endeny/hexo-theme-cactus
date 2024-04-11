@@ -1,12 +1,22 @@
 import React from "react"
+import { Adsense } from "../../theme"
 
-export default function ADs(props: any) {
+export interface ADsProps {
+    adsense?: Adsense
+}
+
+export default function ADs({ adsense }: ADsProps) {
+    if (!adsense ||
+        !adsense.enable) {
+        return null
+    }
+
     return (
         <ins className="adsbygoogle"
             style={{display: "block", textAlign: "center"}}
             data-ad-layout="in-article"
             data-ad-format="fluid"
-            data-ad-client="ca-pub-4089807807862411"
-            data-ad-slot="5898062389" />
+            data-ad-client={adsense.client}
+            data-ad-slot={adsense.slot} />
     )
 }
