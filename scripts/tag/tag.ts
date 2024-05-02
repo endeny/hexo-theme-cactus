@@ -1,9 +1,12 @@
+// @ts-ignore
 const css = hexo.extend.helper.get('css').bind(hexo);
 
+// @ts-ignore
 hexo.extend.injector.register('head_end', () => {
     return css("css/tag.css");
 });
 
+// @ts-ignore
 hexo.extend.tag.register("tag", function(args, content){
     const options = {}
     let value = null
@@ -15,6 +18,7 @@ hexo.extend.tag.register("tag", function(args, content){
             value = arg
         }
     });
+    // @ts-ignore
     const color = options?.color || "red"
     const style = {
         "--my-bg": `var(--my-${color}-1)`,
