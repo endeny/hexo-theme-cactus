@@ -15,7 +15,7 @@ export default function Footer(props: any) {
       <div>
         <div className="copyright">
           <span>💐 鱼香肉丝的部落阁</span>
-          <span>🍒 湘ICP备19022818号-1</span>
+          <span>🍒 <a href="https://beian.miit.gov.cn">湘ICP备19022818号-1</a></span>
         </div>
       </div>
       <div>
