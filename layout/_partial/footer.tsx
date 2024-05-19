@@ -14,8 +14,8 @@ export default function Footer(props: any) {
     <footer id="footer">
       <div>
         <div className="copyright">
-          <span>💐 Zip Alveolus</span>
-          <span>🍒 blog.ourfor.top</span>
+          <span>💐 鱼香肉丝的部落阁</span>
+          <span>🍒 湘ICP备19022818号-1</span>
         </div>
       </div>
       <div>
