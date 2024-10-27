@@ -8,6 +8,19 @@ import Scripts from './_partial/scripts';
 
 const LayoutComponent: React.FC<any> = (props) => {
   const { config, is_post: isPost, body } = props;
+  if (props.page.layout === 'raw') {
+      return (
+        <html lang={config.language ? config.language.substring(0, 2) : undefined}>
+          <Head {...props} />
+          <body className={`max-width mx-auto px3 ${config.direction}`}>
+            <div className="content index">
+              <div dangerouslySetInnerHTML={{__html: body}}></div>
+            </div>
+            <Scripts {...props} />
+          </body>
+        </html>
+      )
+  }
   return (
     <html lang={config.language ? config.language.substring(0, 2) : undefined}>
       <Head {...props} />
