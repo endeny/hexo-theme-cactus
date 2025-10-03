@@ -8,11 +8,12 @@ hexo.extend.injector.register('head_end', () => {
 
 // @ts-ignore
 hexo.extend.tag.register("gallery", function(args, content){
-    const options = {}
+    let options = {}
     let value = null
     args.map(arg => {
         if (arg.includes("=")) {
             const [option, value] = arg.split("=")
+            // @ts-ignore
             options[option] = value
         } else {
             value = arg
@@ -21,6 +22,10 @@ hexo.extend.tag.register("gallery", function(args, content){
     // @ts-ignore
     content = hexo.render.renderSync({text: content, engine: "markdown"})
     content = content.replaceAll(`src="/`, `src="./`)
+    // @ts-ignore
+    const { column = 3 } = options
+    const weight = Math.floor((100 - column) / (parseInt(column)))
+    content = content.replaceAll(`<img`, `<img style="width:${weight}%"`)
     return `
     <div class="x-gallery">
         ${content}
