@@ -19,7 +19,7 @@ const HeadComponent: React.FC<any> = (props) => {
       <meta charSet="utf-8" />
       <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="HandheldFriendly" content="True" />
-      <meta name="google-adsense-account" content="ca-pub-7187369450486868" />
+      <meta name="google-adsense-account" content={theme.adsense.client} />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
       {theme.favicon?.desktop && (
         <link rel="shortcut icon" href={theme.gravatar && (theme.gravatar.email || theme.gravatar.hash) && theme.favicon.desktop.gravatar ? (theme.gravatar.email ? gravatar(theme.gravatar.email, 48) : `https://www.gravatar.com/avatar/${theme.gravatar.hash}?s=48`) : url_for(theme.favicon.desktop.url)} />
