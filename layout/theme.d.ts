@@ -146,6 +146,7 @@ declare namespace Theme {
         enable: boolean;
         client: string;
         slot: string;
+        meta?: Record<string, string>;
     }
 
     interface Config {
