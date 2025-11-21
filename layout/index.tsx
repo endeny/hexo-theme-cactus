@@ -19,7 +19,7 @@ const Page = (props: any) => {
     }
     return (
       <>
-      <a key={i} className="icon" target="_blank" rel="noopener" href={href} aria-label={link}>
+      <a key={i} style={{ marginLeft: `${i === 0 ? 0.25 : 0}rem` }} className="icon" target="_blank" rel="noopener" href={href} aria-label={link}>
         <i className={icon}></i>
       </a>
       {nb_links > 0 && i < nb_links-1 ?
