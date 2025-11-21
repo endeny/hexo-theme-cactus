@@ -10,6 +10,19 @@ if (!!$.prototype.justifiedGallery) {
   $(".article-gallery").justifiedGallery(options);
 }
 
+/**
+ * Configure Fancybox to prevent layout shift
+ */
+if (typeof Fancybox !== 'undefined') {
+  Fancybox.bind('[data-fancybox]', {
+    hideScrollbar: false,  // 不隐藏滚动条，防止页面抖动
+    trapFocus: false,
+    autoFocus: false,
+    // 可选：指定父元素
+    parentEl: document.getElementById('fancybox-container'),
+  });
+}
+
 $(document).ready(function() {
 
   /**

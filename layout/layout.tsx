@@ -33,6 +33,7 @@ const LayoutComponent: React.FC<any> = (props) => {
           <Footer {...props} />
         </div>
         <Scripts {...props} />
+        <div id="fancybox-container" className="fancybox-container"></div>
       </body>
     </html>
   );
