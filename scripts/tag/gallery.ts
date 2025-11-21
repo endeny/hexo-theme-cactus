@@ -1,3 +1,5 @@
+const cheerio = require('cheerio');
+
 // @ts-ignore
 const css = hexo.extend.helper.get('css').bind(hexo);
 
@@ -25,10 +27,26 @@ hexo.extend.tag.register("gallery", function(args, content){
     // @ts-ignore
     const { column = 3 } = options
     const weight = Math.floor((100 - column) / (parseInt(column)))
-    content = content.replaceAll(`<img`, `<img style="width:${weight}%"`)
+    
+    // 使用 cheerio 解析 HTML
+    const $ = cheerio.load(content);
+    
+    // 为所有 a 标签或 img 标签添加样式
+    if ($('a').length > 0) {
+        //@ts-ignore
+        $('a').each((i, elem) => {
+            $(elem).css('width', `${weight}%`);
+        });
+    } else {
+        //@ts-ignore
+        $('img').each((i, elem) => {
+            $(elem).css('width', `${weight}%`);
+        });
+    }
+    
     return `
     <div class="x-gallery">
-        ${content}
+        ${$.html()}
     </div>
     `
 }, {ends: true});

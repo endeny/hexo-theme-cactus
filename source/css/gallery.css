@@ -9,3 +9,11 @@
     flex-grow: 0;
     flex-shrink: 0;
 }
+
+.x-gallery a {
+    /* remove underline */
+    text-decoration: none;
+    background: none !important;
+    display: block;
+    width: fit-content;
+}
